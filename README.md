@@ -7,9 +7,7 @@
 - スクリーンを入れていない場合
     - screen のインストール
     - yumの場合(amazon linux2, centos, redhat などの場合)
-'''
-sudo yum install screen -y
-'''
+```bash sudo yum install screen -y ```
 
 
 ## 手順書
