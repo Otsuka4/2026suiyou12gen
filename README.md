@@ -1,13 +1,24 @@
 # 前期最終課題
 
-## サービス構築のための手順
+##サービス構築
+**vimのインストール**
+```sudo yum install vim -y```
+-vim の設定ファイルの作成＆編集
+```vim ~/.vimrc```
+-ファイルの中身
+https://qiita.com/morikooooo/items/9fd41bcd8d1ce9170301
+ 
 
-
-**スクリーンを使う**
-- スクリーンを入れていない場合
-    - screen のインストール
-    - yumの場合(amazon linux2, centos, redhat などの場合)
-```bash sudo yum install screen -y ```
-
+**screen のインストール**
+```sudo yum install screen -y```
+-スクリーンの設定ファイル
+```vim ~/.screenrc``` 
+-内容はこちらから
+.screenrcにこれだけは設定しとけっていうオススメ設定 - Qiita
+ 
+**ほかの必要なファイルを入手**
++[Git Bash] を開きます。
++git clone https://github.com/Otsuka4/2026suiyou12gen.git
++上をコピーしエンター
 
 ## 手順書
