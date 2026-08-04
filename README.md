@@ -118,7 +118,7 @@ http:// EC2インスタンスのパブリックIPアドレス/zenki.php
 ```
 - 大きい画像ファイルが手元になければ、フリー素材 (例: イメージズラボさま https://imageslabo.com/photo/2082 ) を利用して動作チェック
 
-## mwsqlでデータベースに保存されているのか確認
+## mysqlでデータベースに保存されているのか確認
 ```bash
 select * from zenkikadai;
 ```
