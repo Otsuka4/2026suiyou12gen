@@ -84,7 +84,7 @@ chmod +x ~/.docker/cli-plugins/docker-buildx
 - この後
 ```bash
 docker compose build
-docker compuse up
+docker compose up
 ```
 
 ## 投稿したデータをMYSQLに保存するための準備
@@ -108,7 +108,7 @@ CREATE TABLE `zenkikadai` (
 - この後
 ```bash
 docker compose build
-docker compuse up
+docker compose up
 ```
 
 ## ブラウザで最終確認
