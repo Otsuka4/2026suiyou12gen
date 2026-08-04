@@ -1,6 +1,6 @@
 # 前期最終課題
 
-# サービス構築
+# 手順書
 ## vimのインストール
 ```bash
 sudo yum install vim -y
@@ -50,4 +50,78 @@ chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
 ```bash
 docker compose version
 ```
+
+# Git
+- Gitcloneでリポジトリの内容を持ってくるための作業
+
+## Gitインストール
+```bash
+sudo yum install git -y
+```
+
+## git clon
+```bash
+git clone https://github.com/Otsuka4/2026suiyou12gen.git
+```
+
+- ディレクトリに移動
+``` bash
+cd 2026suiyou12gen
+```
+
+- 更新をする
+```bash
+docker compose bild
+```
+- build中にエラーが出た場合は
+``` bash
+mkdir -p ~/.docker/cli-plugins
+ARCH=$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/')
+BUILDX_URL=$(curl -s https://api.github.com/repos/docker/buildx/releases/latest | grep "browser_download_url.*linux-$ARCH" | cut -d '"' -f 4)
+curl -L $BUILDX_URL -o ~/.docker/cli-plugins/docker-buildx
+chmod +x ~/.docker/cli-plugins/docker-buildx
+```
+- この後
+```bash
+docker compose build
+docker compuse up
+```
+
+## 投稿したデータをMYSQLに保存するための準備
+
+## mysqlの起動
+
+```bash
+ docker compose exec mysql mysql example_db
+```
+
+## テーブルの作成
+``` bash
+
+CREATE TABLE `zenkikadai` (
+    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `body` TEXT NOT NULL,
+    `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
+    `image_filename` TEXT DEFAULT NULL
+);
+```
+- この後
+```bash
+docker compose build
+docker compuse up
+```
+
+## ブラウザで最終確認
+- ブラウザで開けてみて開くこと　投稿の確認
+``` bash
+http:// EC2インスタンスのパブリックIPアドレス/zenki.php
+```
+- 大きい画像ファイルが手元になければ、フリー素材 (例: イメージズラボさま https://imageslabo.com/photo/2082 ) を利用して動作チェック
+
+## mwsqlでデータベースに保存されているのか確認
+```bash
+select * from zenkikadai;
+```
+
+- データが追加されていたら完成
 
